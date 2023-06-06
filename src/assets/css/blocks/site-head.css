@@ -1,0 +1,11 @@
+.site-head ul {
+	display: flex;
+	justify-content: end;
+	gap: var(--space-s-m);
+	padding-block: var(--space-s-m);
+}
+
+.site-head a[aria-current="page"] {
+	color: var(--color-primary);
+}
+

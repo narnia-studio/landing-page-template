@@ -1,0 +1,4 @@
+.section > .link  {
+	display: flex;
+	justify-content: end;
+}
