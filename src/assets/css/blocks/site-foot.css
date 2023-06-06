@@ -1,0 +1,9 @@
+.site-foot {
+	padding-block: var(--space-s-m);
+	color: var(--color-dark);
+}
+
+.site-foot svg {
+	block-size: 0.9em;
+	inline-size: 0.9em;
+}

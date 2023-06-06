@@ -5,13 +5,16 @@ export default function Counter() {
 
 	return (
 		<>
-			<div>Counter: {value}</div>
+			<p>Counter: {value}</p>
 			<button onClick={() => setValue(value + 1)}>
 				Increment
 			</button>
 			<button onClick={() => setValue(value - 1)}>
 				Decrement
 			</button>
+			<div role='alert' className='vh' aria-live='polite'>
+				 {value != undefined ? `Count now is ${value}`: null }
+			</div>
 		</>
 	)
 }
