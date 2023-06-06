@@ -2,6 +2,7 @@
 import Layout from "../../layouts/BlogLayout.astro";
 import { getPosts } from "../../data/get-posts";
 const posts = await getPosts();
+const permaLink = `${import.meta.env.PERMALINK}/posts`;
 ---
 
 <Layout title="Posts" current={true}>
@@ -15,7 +16,7 @@ const posts = await getPosts();
 			posts.map((post: any) => (
 				<article>
 					<h3>
-						<a href={`posts/${post.slug}`}>{post.title}</a>
+						<a href={`${permaLink}/${post.slug}`}>{post.title}</a>
 					</h3>
 					<div />
 				</article>
