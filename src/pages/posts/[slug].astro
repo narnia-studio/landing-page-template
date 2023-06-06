@@ -38,7 +38,16 @@ const { title, content, date, cover, coverAlt, meta } = Astro.props;
 
 <Layout {title}>
 	<div class="wrapper flow">
-		{cover && <img src={cover} alt={coverAlt} width="500" height="500" />}
+		{
+			cover && (
+				<img
+					src={cover}
+					alt={coverAlt || ""}
+					width="500"
+					height="500"
+				/>
+			)
+		}
 
 		<h1>{title}</h1>
 

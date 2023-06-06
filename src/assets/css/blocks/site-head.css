@@ -5,7 +5,19 @@
 	padding-block: var(--space-s-m);
 }
 
-.site-head a[aria-current="page"] {
-	color: var(--color-primary);
+.site-head a:not(:hover) {
+	text-decoration: none;
 }
 
+.site-head a:hover {
+	text-decoration: underline;
+}
+
+.site-head a[aria-current="page"] {
+	text-decoration: underline;
+}
+
+.site-head h1 {
+	padding-block-start: var(--space-s-m);
+	padding-block-end: var(--space-xl);
+}

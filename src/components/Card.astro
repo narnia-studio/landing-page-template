@@ -2,20 +2,47 @@
 export interface Props {
 	title: string;
 	body: string;
-	href: string;
+	liveProject: string;
+	cover?: string;
+	coverAlt?: string;
+	repo: string;
 }
 
-const { href, title, body } = Astro.props;
+const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 ---
 
-<li class="card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
+<li class="card flow">
+	{
+		cover && (
+			<img
+				src={cover}
+				loading="lazy"
+				alt={coverAlt || ""}
+				width="300"
+				height="250"
+			/>
+		)
+	}
+	<h3>
+		{title}
+	</h3>
+	<p>
+		{body}
+	</p>
+	<div>
+		{
+			liveProject ? (
+				<a class="button" href={liveProject}>
+					Live project
+				</a>
+			) : null
+		}
+		{
+			repo ? (
+				<a class="button" data-variant="ghost" href={repo}>
+					Repo
+				</a>
+			) : null
+		}
+	</div>
 </li>

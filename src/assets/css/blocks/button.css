@@ -1,0 +1,29 @@
+.button {
+	@extend .radius;
+
+	display: inline-block;
+	padding: 0.5rem 2rem;
+	background-color: var(--color-dark);
+	color: var(--color-light);
+	border: 2px solid;
+
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+
+	font-family: var(--font-base);
+	font-weight: var(--weight-bold);
+
+}
+
+/* Make sure hover state trumps all variants with a good ol'  important */
+.button:hover {
+	background-color: var(--color-secondary) !important;
+	color: var(--color-light) !important;
+}
+
+/* Add a ghost modifier */
+.button[data-variant='ghost'] {
+	background-color: transparent;
+	color: var(--color-dark);
+}

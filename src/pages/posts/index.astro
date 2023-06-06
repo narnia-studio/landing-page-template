@@ -2,25 +2,31 @@
 import Layout from "../../layouts/BlogLayout.astro";
 import { getPosts } from "../../data/get-posts";
 const posts = await getPosts();
-const permaLink = `${import.meta.env.PERMALINK}/posts`;
 ---
 
-<Layout title="Posts" current={true}>
-	<div class="wrapper region">
-		<h1>Astro excelent</h1>
+<Layout title="Astro excelent • Posts" current={true}>
+	<div class="site-head wrapper">
+		<h1>Blog posts</h1>
 	</div>
 
-	<div class="wrapper flow flow-space-xl">
-		<h2>Blog posts</h2>
+	<section class="wrapper flow flow-space-xl">
 		{
 			posts.map((post: any) => (
 				<article>
-					<h3>
-						<a href={`${permaLink}/${post.slug}`}>{post.title}</a>
-					</h3>
-					<div />
+					<div class="flow flow-space-s-m">
+						<h2>
+							<a href={post.permalink}>{post.title}</a>
+						</h2>
+						<time datetime={post.date}>{post.date}</time>
+
+						<p>
+							{post.summary ? (
+								<Fragment set:html={post.summary} />
+							) : null}
+						</p>
+					</div>
 				</article>
 			))
 		}
-	</div>
+	</section>
 </Layout>

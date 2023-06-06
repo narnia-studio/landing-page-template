@@ -20,12 +20,12 @@ const formatDate = (date) => {
 	return formattedDate;
 };
 
-export const getPosts = async () => {
+export const getProjects = async () => {
 	// connects to notion API
 	const notion = new Client({ auth: import.meta.env.NOTION_KEY });
 	const n2m = new NotionToMarkdown({ notionClient: notion });
 
-	const databaseId = import.meta.env.NOTION_BLOG_ID;
+	const databaseId = import.meta.env.NOTION_PROJECTS_ID;
 	const db = await notion.databases.query({
 		database_id: databaseId,
 		filter: {
@@ -47,37 +47,47 @@ export const getPosts = async () => {
 		return n2m.toMarkdownString(mdblocks);
 	};
 
-	const posts = db.results.map((result) => {
-		// console.log(JSON.stringify(result, null, 2));
+	const projects = db.results.map((result) => {
+		console.log(result);
+
+		/*
+title: string;
+	body: string;
+	href: string;
+	cover?: string;
+	coverAlt?: string;
+	repo: string;		
+		*/
 		return {
 			id: result.id,
-			title: result.properties["title"].title.pop().plain_text,
+			name: result.properties["name"].title.pop().plain_text,
 			content: "",
+			repo: result.properties["repo"].url,
+			liveProject: result.properties["liveProject"].url,
 			cover: result.cover?.file?.url || result.cover?.external?.url,
 			coverAlt:
 				result.properties["coverAlt"]?.rich_text.pop()?.plain_text ||
 				"",
 			date: formatDate(result["last_edited_time"]),
-			socialImage:
-				result.properties["socialImage"]?.files[0]?.file?.url ||
-				result.properties["socialImage"]?.files[0]?.external?.url,
-			summary:
-				result.properties["summary"]?.rich_text.pop()?.plain_text || "",
+			description:
+				result.properties["description"]?.rich_text.pop()?.plain_text ||
+				"",
 			slug: "",
 			permalink: "",
 		};
 	});
 
-	for (let i = 0; i < posts.length; i++) {
-		const _page = posts[i];
+	for (let i = 0; i < projects.length; i++) {
+		const _page = projects[i];
 		const _mdContent = await getContent(_page.id);
 		_page.content = marked(_mdContent);
-		_page.slug = slugify(_page.title, {
+		// _page.description = marked(_page.description);
+		_page.slug = slugify(_page.name, {
 			lower: true,
 			remove: /[*+~.()'"!:@]/g,
 		});
 		_page.permalink = `${import.meta.env.PERMALINK}/posts/${_page.slug}`;
 	}
 
-	return posts;
+	return projects;
 };

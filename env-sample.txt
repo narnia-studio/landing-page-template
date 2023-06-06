@@ -1,0 +1,6 @@
+NOTION_KEY=yout-notion-integration-token
+NOTION_BLOG_ID=your-notion-blog-table-id
+# change this variable when publishing online 
+# e.g. https://my-domain.com 
+PERMALINK=http://localhost:3000
+NOTION_PROJECTS_ID=your-notion-projects-table-id

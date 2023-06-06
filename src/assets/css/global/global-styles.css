@@ -6,7 +6,7 @@
 */
 body {
 	color: var(--color-dark);
-	background: var(--color-light);
+	background: var(--color-light-glare);
 	font-size: var(--size-step-1);
 	font-family: var(--font-base);
 	line-height: 1.4;
@@ -100,12 +100,12 @@ article [href^="http"]:not([href*="eleventy-excellent.netlify.app"])::after {
 	display: inline-block;
 	inline-size: 1em;
 	block-size: 1em;
-	background-image: url("/assets/images/icn-external.svg");
+	/* background-image: url("/assets/images/icn-external.svg"); */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 60% auto;
 	/* alternative text rules */
-	content: "(external link)";
+	/* content: "(external link)"; */
 	overflow: hidden;
 	white-space: nowrap;
 	text-indent: 1em; /* the width of the icon */

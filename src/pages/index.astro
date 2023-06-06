@@ -2,6 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Counter from "../components/Counter.jsx";
+import { getPosts } from "../data/get-posts";
+import { getProjects } from "../data/get-projects";
+
+const posts = await getPosts();
+const projects = await getProjects();
 ---
 
 <Layout title="Astro excelent">
@@ -16,29 +21,27 @@ import Counter from "../components/Counter.jsx";
 			<Counter client:idle />
 		</div>
 
-		<section class="section">
+		<section class="posts section">
 			<h2>Posts</h2>
-			<ul role="list" class="grid" data-layout="50-50">
-				<Card
-					href="https://docs.astro.build/"
-					title="Documentation"
-					body="Learn how Astro works and explore the official API docs."
-				/>
-				<Card
-					href="https://astro.build/integrations/"
-					title="Integrations"
-					body="Supercharge your project with new frameworks and libraries."
-				/>
-				<Card
-					href="https://astro.build/themes/"
-					title="Themes"
-					body="Explore a galaxy of community-built starter themes."
-				/>
-				<Card
-					href="https://astro.build/chat/"
-					title="Community"
-					body="Come say hi to our amazing Discord community. ❤️"
-				/>
+			<ul role="list" class="wrapper flow flow-space-xl">
+				{
+					posts.slice(0, 4).map((post: any) => (
+						<li>
+							<div class="flow flow-space-s-m">
+								<h3>
+									<a href={post.permalink}>{post.title}</a>
+								</h3>
+								<time datetime={post.date}>{post.date}</time>
+
+								<p>
+									{post.summary ? (
+										<Fragment set:html={post.summary} />
+									) : null}
+								</p>
+							</div>
+						</li>
+					))
+				}
 			</ul>
 			<div class="link">
 				<a href="/posts">See all posts</a>
@@ -48,16 +51,25 @@ import Counter from "../components/Counter.jsx";
 		<section>
 			<h2>Projects</h2>
 			<ul role="list" class="grid" data-layout="50-50">
+				{
+					projects.map((project) => (
+						<Card
+							liveProject={project.liveProject}
+							title={project.name}
+							body={project.description}
+							repo={project.repo}
+							cover={project.cover}
+							coverAlt={project.coverAlt}
+						/>
+					))
+				}
 				<Card
-					href="https://docs.astro.build/"
-					title="Documentation"
-					body="Learn how Astro works and explore the official API docs."
-				/>
-				<Card
-					href="https://astro.build/integrations/"
+					liveProject="https://astro.build/integrations/"
 					title="Integrations"
 					body="Supercharge your project with new frameworks and libraries."
+					repo=""
 				/>
+				<!--
 				<Card
 					href="https://astro.build/themes/"
 					title="Themes"
@@ -67,7 +79,7 @@ import Counter from "../components/Counter.jsx";
 					href="https://astro.build/chat/"
 					title="Community"
 					body="Come say hi to our amazing Discord community. ❤️"
-				/>
+				/> -->
 			</ul>
 		</section>
 	</div>

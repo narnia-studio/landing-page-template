@@ -14,6 +14,7 @@ const { title, current } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" type="text/css" href="/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="/css/prism.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -46,5 +47,6 @@ const { title, current } = Astro.props;
 				<a href="https://astro.build/">Astro</a>
 			</p>
 		</footer>
+		<script src="/js/prism.js" is:inline></script>
 	</body>
 </html>
