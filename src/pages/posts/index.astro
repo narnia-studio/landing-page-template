@@ -1,9 +1,25 @@
 ---
 import Layout from "../../layouts/BlogLayout.astro";
+import { getPosts } from "../../data/get-posts";
+const posts = await getPosts();
 ---
 
 <Layout title="Posts" current={true}>
-	<div class="wrapper flow">
-		<h1>Blog posts</h1>
+	<div class="wrapper region">
+		<h1>Astro excelent</h1>
+	</div>
+
+	<div class="wrapper flow flow-space-xl">
+		<h2>Blog posts</h2>
+		{
+			posts.map((post: any) => (
+				<article>
+					<h3>
+						<a href={`posts/${post.slug}`}>{post.title}</a>
+					</h3>
+					<div />
+				</article>
+			))
+		}
 	</div>
 </Layout>
