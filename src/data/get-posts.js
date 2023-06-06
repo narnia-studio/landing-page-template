@@ -48,7 +48,7 @@ export const getPosts = async () => {
 	};
 
 	const posts = db.results.map((result) => {
-		// console.log(JSON.stringify(result, null, 2));
+		console.log(JSON.stringify(result, null, 2));
 		return {
 			id: result.id,
 			title: result.properties["title"].title.pop().plain_text,

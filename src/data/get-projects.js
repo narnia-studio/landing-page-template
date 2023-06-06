@@ -5,6 +5,8 @@ import { NotionToMarkdown } from "notion-to-md";
 import { marked } from "marked";
 import slugify from "slugify";
 
+import { imageDownload } from "../utils/image-download";
+
 const formatDate = (date) => {
 	const dateOptions = {
 		year: "numeric",
@@ -49,15 +51,6 @@ export const getProjects = async () => {
 
 	const projects = db.results.map((result) => {
 		console.log(result);
-
-		/*
-title: string;
-	body: string;
-	href: string;
-	cover?: string;
-	coverAlt?: string;
-	repo: string;		
-		*/
 		return {
 			id: result.id,
 			name: result.properties["name"].title.pop().plain_text,
@@ -87,6 +80,13 @@ title: string;
 			remove: /[*+~.()'"!:@]/g,
 		});
 		_page.permalink = `${import.meta.env.PERMALINK}/posts/${_page.slug}`;
+
+		// host images locally to avoid
+		// notion temporary urls from causing errors when loading image
+		if (_page.cover) {
+			const img = await imageDownload(_page.cover, _page.slug);
+			_page.cover = img;
+		}
 	}
 
 	return projects;
