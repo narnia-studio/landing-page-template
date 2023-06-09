@@ -6,7 +6,7 @@ const posts = await getPosts();
 
 <Layout title="Astro excelent • Posts" current="posts">
 	<div class="site-head wrapper">
-		<h1>Blog posts</h1>
+		<h2>Blog posts</h2>
 	</div>
 
 	<section class="wrapper flow flow-space-xl">
@@ -14,16 +14,16 @@ const posts = await getPosts();
 			posts.map((post: any) => (
 				<article>
 					<div class="flow flow-space-s-m">
-						<h2>
+						<h3>
 							<a href={post.permalink}>{post.title}</a>
-						</h2>
+						</h3>
 						<time datetime={post.date}>{post.date}</time>
 
-						<p>
-							{post.summary ? (
+						{post.summary ? (
+							<p>
 								<Fragment set:html={post.summary} />
-							) : null}
-						</p>
+							</p>
+						) : null}
 					</div>
 				</article>
 			))
