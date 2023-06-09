@@ -1,6 +1,6 @@
 import fs from "fs";
 import fetch from "node-fetch";
-import path, { resolve } from "path";
+import path from "path";
 
 export function isImage(url) {
 	return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
@@ -30,14 +30,13 @@ export async function imageDownload(uri, fileName) {
 
 	return new Promise(async (resolve, reject) => {
 		try {
-			let fileExists = false;
 			fs.readFile(filePath, async (err, _) => {
-				// check if file exists
-				fileExists = !err;
+				const fileExists = !err;
 
 				if (fileExists) {
 					return resolve(imageUrl);
 				}
+
 				const response = await fetch(uri);
 
 				const blob = await response.blob();

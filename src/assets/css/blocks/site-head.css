@@ -1,23 +1,32 @@
+.site-head {
+	padding-block: var(--space-m);
+}
+
+.site-head .head__inner {
+	padding-block: var(--space-s);
+	border-bottom: 3px solid var(--color-dark);
+}
+
 .site-head ul {
 	display: flex;
 	justify-content: end;
 	gap: var(--space-s-m);
-	padding-block: var(--space-s-m);
+	padding-block-start: var(--space-s);
+	margin: 0;
 }
 
 .site-head a:not(:hover) {
 	text-decoration: none;
 }
 
-.site-head a:hover {
-	text-decoration: underline;
-}
-
 .site-head a[aria-current="page"] {
 	text-decoration: underline;
+	text-decoration-style: double;
 }
 
-.site-head h1 {
-	padding-block-start: var(--space-s-m);
-	padding-block-end: var(--space-xl);
+.site-head a:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--color-primary);
 }
+
+

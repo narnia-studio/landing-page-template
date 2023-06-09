@@ -9,18 +9,8 @@ const posts = await getPosts();
 const projects = await getProjects();
 ---
 
-<Layout title="Astro excelent">
+<Layout title="Astro excelent" current="home">
 	<div class="wrapper flow">
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.
-			<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
-			above.
-		</p>
-		<div>
-			<Counter client:idle />
-		</div>
-
 		<section class="posts section">
 			<h2>Posts</h2>
 			<ul role="list" class="wrapper flow flow-space-xl">
@@ -47,6 +37,12 @@ const projects = await getProjects();
 				<a href="/posts">See all posts</a>
 			</div>
 		</section>
+
+		<div>
+			<p>Example preact component</p>
+			<!-- TODO: create something real for the blog 😬 -->
+			<Counter client:idle />
+		</div>
 
 		<section>
 			<h2>Projects</h2>

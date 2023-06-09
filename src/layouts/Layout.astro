@@ -1,9 +1,10 @@
 ---
-export interface Props {
-	title: string;
-}
+import SiteHead from "../components/SiteHead.astro";
+import { LayoutProps } from "../model/layout";
 
-const { title } = Astro.props;
+export interface Props extends LayoutProps {}
+
+const { title, current } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,11 +18,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header>
-			<div class="site-head wrapper">
-				<h1>Astro excelent</h1>
-			</div>
-		</header>
+		<SiteHead {current} />
 		<main tabindex="-1">
 			<slot />
 		</main>

@@ -50,7 +50,7 @@ export const getProjects = async () => {
 	};
 
 	const projects = db.results.map((result) => {
-		console.log(result);
+		// console.log(result);
 		return {
 			id: result.id,
 			name: result.properties["name"].title.pop().plain_text,

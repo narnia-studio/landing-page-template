@@ -1,8 +1,8 @@
 ---
-export interface Props {
-	title: string;
-	current?: boolean;
-}
+import SiteHead from "../components/SiteHead.astro";
+import { LayoutProps } from "../model/layout";
+
+export interface Props extends LayoutProps {}
 
 const { title, current } = Astro.props;
 ---
@@ -19,23 +19,7 @@ const { title, current } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="site-head">
-			<nav class="wrapper">
-				<ul role="list">
-					<li>
-						<a href="/"> Home</a>
-					</li>
-					<li>
-						<a
-							href="/posts"
-							aria-current={current ? "page" : undefined}
-						>
-							Posts
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<SiteHead {current} />
 		<main tabindex="-1">
 			<slot />
 		</main>

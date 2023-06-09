@@ -1,0 +1,28 @@
+---
+export interface Props {
+	current?: string;
+}
+
+const { current } = Astro.props;
+const isCurrent = (page: string): "page" | undefined =>
+	current == page ? "page" : undefined;
+---
+
+<header class="site-head">
+	<div class="head__inner">
+		<div class="wrapper">
+			<h1>Astro excelent</h1>
+		</div>
+	</div>
+
+	<nav class="wrapper">
+		<ul role="list">
+			<li>
+				<a href="/" aria-current={isCurrent("home")}> Home</a>
+			</li>
+			<li>
+				<a href="/posts" aria-current={isCurrent("posts")}> Posts</a>
+			</li>
+		</ul>
+	</nav>
+</header>
