@@ -7,26 +7,40 @@
 	border-bottom: 3px solid var(--color-dark);
 }
 
+.site-head .head__nav {
+	border-bottom: 3px solid var(--color-dark);
+}
+
 .site-head ul {
 	display: flex;
 	justify-content: end;
-	gap: var(--space-s-m);
-	padding-block-start: var(--space-s);
-	margin: 0;
+	margin-block: 0;
 }
 
-.site-head a:not(:hover) {
+.site-head a {
 	text-decoration: none;
+	display: inline-block;
+	padding-block: var(--space-s);
+	padding-inline: var(--space-s);
 }
 
 .site-head a[aria-current="page"] {
-	text-decoration: underline;
-	text-decoration-style: double;
+	background-color: var(--color-secondary);
+	color: var(--color-light);
 }
 
-.site-head a:hover {
-	text-decoration: underline;
-	text-decoration-color: var(--color-primary);
+.site-head a:hover,
+.site-head a:focus {
+	color: var(--color-light);
+	background-color: var(--color-primary);
+}
+
+.site-head li + li a {
+	border-left: 3px solid var(--color-dark);
+	border-right: 3px solid var(--color-dark);
+}
+.site-head li:first-of-type a {
+	border-left: 3px solid var(--color-dark);
 }
 
 
