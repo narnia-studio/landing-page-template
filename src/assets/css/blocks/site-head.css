@@ -1,14 +1,14 @@
 .site-head {
-	padding-block: var(--space-m);
+	border-bottom: 3px solid var(--color-dark);
+	border-top: 3px solid var(--color-dark);
 }
 
 .site-head .head__inner {
 	padding-block: var(--space-s);
-	border-bottom: 3px solid var(--color-dark);
 }
 
 .site-head .head__nav {
-	border-bottom: 3px solid var(--color-dark);
+	border-top: 3px solid var(--color-dark);
 }
 
 .site-head ul {

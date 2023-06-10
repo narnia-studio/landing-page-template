@@ -11,6 +11,8 @@ body {
 	font-family: var(--font-base);
 	line-height: 1.4;
 	letter-spacing: var(--tracking);
+	display: flex;
+	flex-direction: column;
 }
 
 /* Base typesetting */

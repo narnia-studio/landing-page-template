@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/BlogLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { getPosts } from "../../data/get-posts";
 const posts = await getPosts();
 ---
@@ -11,22 +11,37 @@ const posts = await getPosts();
 
 	<section class="wrapper flow flow-space-xl">
 		{
-			posts.map((post: any) => (
-				<article>
-					<div class="flow flow-space-s-m">
-						<h3>
-							<a href={post.permalink}>{post.title}</a>
-						</h3>
-						<time datetime={post.date}>{post.date}</time>
+			posts.length > 0 ? (
+				<>
+					<ul role="list" class="wrapper flow flow-space-xl">
+						{posts.map((post: any) => (
+							<article>
+								<div class="flow flow-space-s-m">
+									<h3>
+										<a href={post.permalink}>
+											{post.title}
+										</a>
+									</h3>
+									<time datetime={post.date}>
+										{post.date}
+									</time>
 
-						{post.summary ? (
-							<p>
-								<Fragment set:html={post.summary} />
-							</p>
-						) : null}
-					</div>
-				</article>
-			))
+									{post.summary ? (
+										<p>
+											<Fragment set:html={post.summary} />
+										</p>
+									) : null}
+								</div>
+							</article>
+						))}
+					</ul>
+				</>
+			) : (
+				<p>
+					Sorry we haven't made any posts yet.
+					<span aria-hidden="true">🥲</span>
+				</p>
+			)
 		}
 	</section>
 </Layout>

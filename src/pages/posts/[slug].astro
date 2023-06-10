@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/BlogLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { getPosts } from "../../data/get-posts";
 
 export async function getStaticPaths() {
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 const { title, content, date, cover, coverAlt, meta } = Astro.props;
 ---
 
-<Layout title="Astro excelent">
+<Layout {title}>
 	<div class="wrapper flow">
 		{
 			cover && (
