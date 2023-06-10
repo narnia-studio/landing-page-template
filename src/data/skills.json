@@ -1,0 +1,16 @@
+{
+	"skills": [
+		{
+			"value": "Javascript",
+			"icon": "js"
+		},
+		{
+			"value": "Angular",
+			"icon": "angular"
+		},
+		{
+			"value": "Vue",
+			"icon": "vue"
+		}
+	]
+}

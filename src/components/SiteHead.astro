@@ -1,4 +1,6 @@
 ---
+import Marquee from "./Marquee.jsx";
+import skills from "../data/skills.json";
 export interface Props {
 	current?: string;
 }
@@ -8,6 +10,7 @@ const isCurrent = (page: string): "page" | undefined =>
 	current == page ? "page" : undefined;
 ---
 
+<!-- <Marquee items={skills.skills} client:idle /> -->
 <header class="site-head">
 	<div class="head__inner">
 		<div class="wrapper">

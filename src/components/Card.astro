@@ -11,38 +11,42 @@ export interface Props {
 const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 ---
 
-<li class="card flow">
+<li class="card">
 	{
 		cover && (
-			<img
-				src={cover}
-				loading="lazy"
-				alt={coverAlt || ""}
-				width="300"
-				height="250"
-			/>
+			<div class="card__image">
+				<img
+					src={cover}
+					loading="lazy"
+					alt={coverAlt || ""}
+					width="300"
+					height="400"
+				/>
+			</div>
 		)
 	}
-	<h3>
-		{title}
-	</h3>
-	<p>
-		{body}
-	</p>
-	<div>
-		{
-			liveProject ? (
-				<a class="button" href={liveProject}>
-					Live project
-				</a>
-			) : null
-		}
-		{
-			repo ? (
-				<a class="button" data-variant="ghost" href={repo}>
-					Repo
-				</a>
-			) : null
-		}
+	<div class="card__content">
+		<h3>
+			{title}
+		</h3>
+		<p>
+			{body}
+		</p>
+		<div>
+			{
+				liveProject ? (
+					<a class="button" href={liveProject}>
+						Live project
+					</a>
+				) : null
+			}
+			{
+				repo ? (
+					<a class="button" data-variant="ghost" href={repo}>
+						Repo
+					</a>
+				) : null
+			}
+		</div>
 	</div>
 </li>

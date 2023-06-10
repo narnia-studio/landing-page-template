@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import Counter from "../components/Counter.jsx";
+
 import { getPosts } from "../data/get-posts";
 import { getProjects } from "../data/get-projects";
 
@@ -10,8 +10,8 @@ const projects = await getProjects();
 ---
 
 <Layout title="Astro excelent" current="home">
-	<div class="wrapper flow">
-		<section class="posts section">
+	<section class="section">
+		<div class="wrapper">
 			<div class="region">
 				<h2>Posts</h2>
 			</div>
@@ -53,20 +53,16 @@ const projects = await getProjects();
 					</p>
 				)
 			}
-		</section>
-
-		<div>
-			<p>Example preact component</p>
-			<!-- TODO: create something real for the blog 😬 -->
-			<Counter client:idle />
 		</div>
+	</section>
 
-		<section>
+	<section class="section bg-secondary text-light">
+		<div class="wrapper">
 			<div class="region">
 				<h2>Projects</h2>
 			</div>
 
-			<ul role="list" class="grid" data-layout="50-50">
+			<ul role="list" class="flow flow-space-xl">
 				{
 					projects.map((project) => (
 						<Card
@@ -92,6 +88,6 @@ const projects = await getProjects();
 					repo=""
 				/>
 			</ul>
-		</section>
-	</div>
+		</div>
+	</section>
 </Layout>

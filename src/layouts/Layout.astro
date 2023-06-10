@@ -8,7 +8,7 @@ const { title, current } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -16,6 +16,11 @@ const { title, current } = Astro.props;
 		<link rel="stylesheet" type="text/css" href="/css/global.css" />
 		<link rel="stylesheet" type="text/css" href="/css/prism.css" />
 		<meta name="generator" content={Astro.generator} />
+		<script type="module">
+			// This is a capable browser, let's improve the UI further!
+			document.documentElement.classList.add("enhanced");
+			document.documentElement.classList.remove("no-js");
+		</script>
 		<title>{title}</title>
 	</head>
 	<body>

@@ -1,0 +1,41 @@
+.marquee button {
+	all: unset;
+	position: relative;
+	height: 3rem;
+	width: 3rem;
+	cursor: pointer;
+	margin-block: var(--space-s);
+}
+
+.marquee button:hover,
+.marquee button:focus {
+	outline: 3px solid currentColor;
+}
+
+.marquee button svg {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.marquee button[aria-pressed="false"] #play {
+	visibility: visible;
+}
+
+.marquee button[aria-pressed="false"] #pause {
+	visibility: hidden;
+}
+
+.marquee button[aria-pressed="true"] #play {
+	visibility: hidden;
+}
+
+.marquee button[aria-pressed="true"] #pause {
+	visibility: visible;
+}
+
+.marquee button[aria-pressed="true"] .marquee__content {
+
+}
