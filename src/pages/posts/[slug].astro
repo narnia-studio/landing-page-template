@@ -49,9 +49,10 @@ const { title, content, date, cover, coverAlt, meta } = Astro.props;
 			)
 		}
 
-		<h2>{title}</h2>
-
-		<time datetime={date}>{date}</time>
+		<div class="region">
+			<h2>{title}</h2>
+			<time datetime={date}>{date}</time>
+		</div>
 
 		<Fragment set:html={content} />
 	</div>

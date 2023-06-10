@@ -71,10 +71,6 @@ svg {
 	flex: none;
 }
 
-[role="list"] {
-	padding: 0;
-}
-
 /* Base interactive elements */
 
 a {

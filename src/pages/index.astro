@@ -12,7 +12,9 @@ const projects = await getProjects();
 <Layout title="Astro excelent" current="home">
 	<div class="wrapper flow">
 		<section class="posts section">
-			<h2>Posts</h2>
+			<div class="region">
+				<h2>Posts</h2>
+			</div>
 			{
 				posts.length > 0 ? (
 					<>
@@ -60,7 +62,10 @@ const projects = await getProjects();
 		</div>
 
 		<section>
-			<h2>Projects</h2>
+			<div class="region">
+				<h2>Projects</h2>
+			</div>
+
 			<ul role="list" class="grid" data-layout="50-50">
 				{
 					projects.map((project) => (

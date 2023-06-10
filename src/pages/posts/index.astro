@@ -5,8 +5,10 @@ const posts = await getPosts();
 ---
 
 <Layout title="Astro excelent • Posts" current="posts">
-	<div class="site-head wrapper">
-		<h2>Blog posts</h2>
+	<div class="wrapper">
+		<div class="region">
+			<h2>Blog posts</h2>
+		</div>
 	</div>
 
 	<section class="wrapper flow flow-space-xl">
@@ -15,24 +17,28 @@ const posts = await getPosts();
 				<>
 					<ul role="list" class="wrapper flow flow-space-xl">
 						{posts.map((post: any) => (
-							<article>
-								<div class="flow flow-space-s-m">
-									<h3>
-										<a href={post.permalink}>
-											{post.title}
-										</a>
-									</h3>
-									<time datetime={post.date}>
-										{post.date}
-									</time>
+							<li>
+								<article>
+									<div class="flow flow-space-s-m">
+										<h3>
+											<a href={post.permalink}>
+												{post.title}
+											</a>
+										</h3>
+										<time datetime={post.date}>
+											{post.date}
+										</time>
 
-									{post.summary ? (
-										<p>
-											<Fragment set:html={post.summary} />
-										</p>
-									) : null}
-								</div>
-							</article>
+										{post.summary ? (
+											<p>
+												<Fragment
+													set:html={post.summary}
+												/>
+											</p>
+										) : null}
+									</div>
+								</article>
+							</li>
 						))}
 					</ul>
 				</>
