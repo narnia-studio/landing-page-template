@@ -1,6 +1,10 @@
 ---
 import Marquee from "./Marquee.jsx";
 import skills from "../data/skills.json";
+import Icon from "./icons/Icon.jsx";
+
+import { icons } from "./icons/icons";
+
 export interface Props {
 	current?: string;
 }
@@ -10,7 +14,16 @@ const isCurrent = (page: string): "page" | undefined =>
 	current == page ? "page" : undefined;
 ---
 
-<!-- <Marquee items={skills.skills} client:idle /> -->
+<Marquee items={skills.skills} client:idle>
+	{
+		skills.skills.map((item) => (
+			<li>
+				{item && item.icon ? <Icon icon={icons[item.icon]} /> : null}
+				{item.value}
+			</li>
+		))
+	}
+</Marquee>
 <header class="site-head">
 	<div class="head__inner">
 		<div class="wrapper">

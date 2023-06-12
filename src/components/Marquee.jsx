@@ -1,9 +1,10 @@
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useRef } from "preact/hooks";
 
-export default function Marquee({ items }) {
+export default function Marquee(props) {
 	const [enableMotion, setEnableMotion] = useState(false);
 	const [prefersMotion, setPrefersMotion] = useState(null);
 	const [enhance, setEnhance] = useState(false);
+	const button = useRef(null);
 
 	const motionStorageKey = "enable-astro-blog-motion";
 
@@ -14,6 +15,8 @@ export default function Marquee({ items }) {
 
 	useEffect(() => {
 		try {
+			// only display button if js is available
+			// button.removeAttribute('hidden');
 			// checks if js is enabled
 			const _enhanced =
 				document.documentElement.classList.contains("enhanced");
@@ -37,18 +40,19 @@ export default function Marquee({ items }) {
 
 	return (
 		<>
-			<div hidden={enhance ? undefined : ""} class="marquee" id="marquee">
+			<div class="marquee">
 				<div class="wrapper">
 					<button
+						data-visible={enhance}
 						type="button"
 						role="switch"
 						aria-pressed={enableMotion}
 						id="playButton"
 						onClick={() => handleAnimationState(enableMotion)}
 					>
-						<div className="vh">
+						<span className="vh">
 							Animation is {enableMotion ? "enabled" : "disabled"}
-						</div>
+						</span>
 						<svg
 							id="pause"
 							xmlns="http://www.w3.org/2000/svg"
@@ -77,14 +81,14 @@ export default function Marquee({ items }) {
 						</svg>
 					</button>
 					<div className="marquee__content">
-						{items &&
-							Array.from({ length: 2 }, (_, i) => (
-								<ul role="list" aria-hidden={i == 1 || undefined} key={i}>
-									{items.map((item) => (
-										<li key={i + "-" + item.value}>
-											{item.value}
-										</li>
-									))}
+						{props.items &&
+							Array.from({ length: 4 }, (_, i) => (
+								<ul
+									role="list"
+									aria-hidden={i > 0 || undefined}
+									key={i}
+								>
+									{props.children}
 								</ul>
 							))}
 					</div>

@@ -83,6 +83,7 @@ export const getProjects = async () => {
 
 		// host images locally to avoid
 		// notion temporary urls from causing errors when loading image
+		// Create a script to save images to cloudinary and store
 		if (_page.cover) {
 			const img = await imageDownload(_page.cover, _page.slug);
 			_page.cover = img;
