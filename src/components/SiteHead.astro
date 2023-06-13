@@ -1,5 +1,6 @@
 ---
 import Marquee from "./Marquee.jsx";
+import AnimationControl from "./AnimationControl.jsx";
 import skills from "../data/skills.json";
 import Icon from "./icons/Icon.jsx";
 
@@ -14,16 +15,23 @@ const isCurrent = (page: string): "page" | undefined =>
 	current == page ? "page" : undefined;
 ---
 
-<Marquee items={skills.skills} client:idle>
-	{
-		skills.skills.map((item) => (
-			<li>
-				{item && item.icon ? <Icon icon={icons[item.icon]} /> : null}
-				{item.value}
-			</li>
-		))
-	}
-</Marquee>
+<div class="marquee-container">
+	<div>
+		<AnimationControl client:idle />
+		<Marquee>
+			{
+				skills.skills.map((item) => (
+					<li>
+						{item && item.icon ? (
+							<Icon icon={icons[item.icon]} />
+						) : null}
+						{item.value}
+					</li>
+				))
+			}
+		</Marquee>
+	</div>
+</div>
 <header class="site-head">
 	<div class="head__inner">
 		<div class="wrapper">

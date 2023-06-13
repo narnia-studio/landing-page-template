@@ -15,6 +15,7 @@
 	display: flex;
 	justify-content: end;
 	margin-block: 0;
+	padding-inline: var(--gutter);
 }
 
 .site-head a {

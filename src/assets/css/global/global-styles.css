@@ -118,3 +118,13 @@ article [href^="http"]:not([href*="eleventy-excellent.netlify.app"])::after {
 .preload-transitions * {
 	transition: none !important;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	.no-js {
+		--animation-play-state: running;
+	}
+}
+
+.animate {
+	--animation-play-state: running;
+}

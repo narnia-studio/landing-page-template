@@ -1,72 +1,37 @@
-.marquee .wrapper {
+.marquee-container  {
 	display: flex;
-	align-items: center;
-	gap: var(--space-s-m);
+	justify-content: center;
 }
 
-.marquee button {
-	all: unset;
-	position: relative;
-	height: 3rem;
-	width: 3rem;
-	cursor: pointer;
-	margin-block: var(--space-s);
-	display: none;
-}
-
-.marquee button[data-visible="true"] {
-	display: block;
-}
-
-.marquee button:hover,
-.marquee button:focus {
-	outline: 3px solid currentColor;
-}
-
-.marquee button svg {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	pointer-events: none;
-}
-
-.marquee button[aria-pressed="false"] #play {
-	visibility: visible;
-}
-
-.marquee button[aria-pressed="false"] #pause {
-	visibility: hidden;
-}
-
-.marquee button[aria-pressed="true"] #play {
-	visibility: hidden;
-}
-
-.marquee button[aria-pressed="true"] #pause {
-	visibility: visible;
-}
-
-.marquee .marquee__content {
+.marquee-container > div {
 	display: flex;
+	gap: var(--gutter);
 	overflow: hidden;
+	padding-inline: var(--gutter);
+	max-inline-size: var(--wrapper-max-width, 85rem);
+}
+
+.marquee {
+	overflow: hidden;
+	display: flex;
 	gap: var(--space-s-m);
 }
 
-.marquee .marquee__content ul,
-.marquee .marquee__content li {
+
+.marquee ul,
+.marquee li {
 	display: flex;
 	align-items: center;
 	gap: var(--space-s);
 }
 
-.marquee .marquee__content ul {
+.marquee ul {
+	flex-shrink: 0;
+	justify-content: space-around;
 	gap: var(--space-s-m);
 	animation: scroll 5s linear infinite;
-	animation-play-state: paused;
+	animation-play-state: var(--animation-play-state);
 }
-
-
 
 @keyframes scroll {
 	from {
@@ -78,16 +43,3 @@
 	}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.marquee button[aria-pressed="true"][data-visible="true"] + .marquee__content ul {
-		animation-play-state: running;
-	}
-
-	.marquee button[aria-pressed="false"][data-visible="true"] + .marquee__content ul {
-		animation-play-state: paused;
-	}
-
-	.marquee .marquee__content ul {
-		animation-play-state: running;
-	}
-}
