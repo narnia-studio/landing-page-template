@@ -57,7 +57,6 @@ export default function AnimationControl() {
 			data-visible={enhance}
 			className="animation-control"
 			type="button"
-			role="switch"
 			aria-pressed={enableMotion}
 			id="playButton"
 			onClick={() => handleAnimationState(enableMotion)}
