@@ -5,7 +5,7 @@ import { NotionToMarkdown } from "notion-to-md";
 import { marked } from "marked";
 import slugify from "slugify";
 
-import { imageDownload } from "../utils/image-download";
+import uploadNotionImagesToCloudinary from "upload-notion-images-to-cloudinary";
 
 const formatDate = (date) => {
 	const dateOptions = {
@@ -28,6 +28,15 @@ export const getProjects = async () => {
 	const n2m = new NotionToMarkdown({ notionClient: notion });
 
 	const databaseId = import.meta.env.NOTION_PROJECTS_ID;
+
+	await uploadNotionImagesToCloudinary({
+		notionToken: import.meta.env.NOTION_KEY,
+		notionDatabaseId: databaseId,
+		cloudinaryUrl: import.meta.env.CLOUDINARY_URL,
+		cloudinaryUploadFolder: import.meta.env.CLOUDINARY_UPLOAD_FOLDER || "",
+		logLevel: "debug",
+	});
+
 	const db = await notion.databases.query({
 		database_id: databaseId,
 		filter: {
@@ -83,11 +92,6 @@ export const getProjects = async () => {
 
 		// host images locally to avoid
 		// notion temporary urls from causing errors when loading image
-		// Create a script to save images to cloudinary and store
-		if (_page.cover) {
-			const img = await imageDownload(_page.cover, _page.slug);
-			_page.cover = img;
-		}
 	}
 
 	return projects;

@@ -1,0 +1,13 @@
+.cover-image {
+	margin-block-start: var(--scape-m);
+}
+
+.cover-image img {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.cover-image + .region {
+	--region-space-top: var(--space-m);
+}

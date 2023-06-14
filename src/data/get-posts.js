@@ -5,6 +5,8 @@ import { NotionToMarkdown } from "notion-to-md";
 import { marked } from "marked";
 import slugify from "slugify";
 
+import uploadNotionImagesToCloudinary from 'upload-notion-images-to-cloudinary';
+
 const formatDate = (date) => {
 	const dateOptions = {
 		year: "numeric",
@@ -26,6 +28,15 @@ export const getPosts = async () => {
 	const n2m = new NotionToMarkdown({ notionClient: notion });
 
 	const databaseId = import.meta.env.NOTION_BLOG_ID;
+
+	await uploadNotionImagesToCloudinary({
+		notionToken: import.meta.env.NOTION_KEY,
+		notionDatabaseId: databaseId,
+		cloudinaryUrl: import.meta.env.CLOUDINARY_URL,
+		cloudinaryUploadFolder: import.meta.env.CLOUDINARY_UPLOAD_FOLDER || "",
+		logLevel: "debug",
+	  });
+
 	const db = await notion.databases.query({
 		database_id: databaseId,
 		filter: {
