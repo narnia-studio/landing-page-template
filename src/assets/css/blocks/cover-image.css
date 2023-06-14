@@ -1,11 +1,13 @@
 .cover-image {
-	margin-block-start: var(--scape-m);
+	margin-block-start: var(--space-l-2xl);
 }
 
 .cover-image img {
-	width: 100%;
 	object-fit: cover;
 	object-position: center;
+	max-width: 100%;
+	height: auto;
+	max-height: 25ch;
 }
 
 .cover-image + .region {
