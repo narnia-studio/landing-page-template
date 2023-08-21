@@ -12,9 +12,9 @@ const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 ---
 
 <li class="card">
-	{
-		cover && (
-			<div class="card__image">
+	<div class="flow flow-space-m">
+		{
+			cover && (
 				<img
 					src={cover}
 					loading="lazy"
@@ -22,17 +22,14 @@ const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 					width="300"
 					height="400"
 				/>
-			</div>
-		)
-	}
-	<div class="card__content">
+			)
+		}
 		<h3>
 			{title}
 		</h3>
 		<p>
 			{body}
 		</p>
-		<div>
 			{
 				liveProject ? (
 					<a class="button" href={liveProject}>
@@ -47,6 +44,5 @@ const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 					</a>
 				) : null
 			}
-		</div>
 	</div>
 </li>

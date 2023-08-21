@@ -56,13 +56,18 @@ const projects = await getProjects();
 		</div>
 	</section>
 
-	<section class="section bg-secondary text-light">
+	<section class="section bg-secondary">
 		<div class="wrapper">
 			<div class="region">
 				<h2>Projects</h2>
 			</div>
 
-			<ul role="list" class="flow flow-space-xl">
+			<ul
+				role="list"
+				data-layout="50-50"
+				data-rows="masonry"
+				class="grid"
+			>
 				{
 					projects.map((project) => (
 						<Card

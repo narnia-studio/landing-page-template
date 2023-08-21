@@ -26,20 +26,22 @@
 }
 
 .site-head a[aria-current="page"] {
-	background-color: var(--color-secondary);
-	color: var(--color-light);
+	background-color: var(--color-secondary-glare);
+	color: var(--color-dark);
+	text-decoration: revert;
 }
 
 .site-head a:hover,
 .site-head a:focus {
 	color: var(--color-light);
-	background-color: var(--color-primary);
+	background-color: var(--color-dark);
 }
 
 .site-head li + li a {
 	border-left: 3px solid var(--color-dark);
 	border-right: 3px solid var(--color-dark);
 }
+
 .site-head li:first-of-type a {
 	border-left: 3px solid var(--color-dark);
 }

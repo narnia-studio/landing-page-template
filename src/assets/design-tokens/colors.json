@@ -4,7 +4,7 @@
 	"items": [
 		{
 			"name": "Dark",
-			"value": "#263147"
+			"value": "#181f2e"
 		},
 		{
 			"name": "Light",
@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "Primary",
-			"value": "#DD4462"
+			"value": "#105cff"
 		},
 		{
 			"name": "Primary Glare",
@@ -24,15 +24,15 @@
 		},
 		{
 			"name": "Secondary",
-			"value": "#0369A1"
+			"value": "#0b94de"
 		},
 		{
 			"name": "Secondary Glare",
-			"value": "#D8E2F4"
+			"value": "#699efe"
 		},
 		{
 			"name": "Tertiary",
-			"value": "#FFBCA3"
+			"value": "#4528ff"
 		}
 	]
 }

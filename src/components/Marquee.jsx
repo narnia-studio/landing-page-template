@@ -1,18 +1,17 @@
 export default function Marquee(props) {
 	return (
 		props.children && (
-			<div class="marquee">
-				{Array.from({ length: 4 }, (_, i) => (
-					<ul
+			<figure class="marquee">
+				{Array.from({ length: 3 }, (_, i) => (
+					<div
 						className="marquee__content"
-						role="list"
 						aria-hidden={i > 0 || undefined}
 						key={i}
 					>
 						{props.children}
-					</ul>
+					</div>
 				))}
-			</div>
+			</figure>
 		)
 	);
 }

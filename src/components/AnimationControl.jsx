@@ -2,52 +2,44 @@ import { useState, useEffect, useRef } from "preact/hooks";
 
 export default function AnimationControl() {
 	const [enableMotion, setEnableMotion] = useState(false);
-	const [prefersMotion, setPrefersMotion] = useState(null);
 	const [enhance, setEnhance] = useState(false);
 
 	const motionStorageKey = "enable-astro-blog-motion";
 
 	const updateClass = (value) => {
 		if (value) {
-			document.documentElement.classList.add("animate")
+			document.documentElement.classList.add("animate");
 		} else {
-			document.documentElement.classList.remove("animate")
+			document.documentElement.classList.remove("animate");
 		}
-	}
+	};
 
-	const handleAnimationState = (value) => {
-		const _enabled = !value;
-		setEnableMotion(_enabled);
-		localStorage.setItem(motionStorageKey, String(_enabled));
-		updateClass(_enabled);
+	const handleAnimationState = (enabled) => {
+		setEnableMotion(!!enabled);
+		localStorage.setItem(motionStorageKey, String(!!enabled));
+		updateClass(!!enabled);
 	};
 
 	useEffect(() => {
 		try {
-			// checks document has class "enhanced" 
+			// checks document has class "enhanced"
 			// which indicates presence of javascript
 			const _enhanced =
 				document.documentElement.classList.contains("enhanced");
 			setEnhance(_enhanced);
-
-			setPrefersMotion(
-				window.matchMedia("(prefers-reduced-motion: no-preference)")
-			);
 
 			// handle local storage
 			const _storedValue = localStorage.getItem(motionStorageKey);
 			const _motionEnabled =
 				_storedValue != undefined ? _storedValue == "true" : undefined;
 
-
 			if (_motionEnabled != undefined) {
-				setEnableMotion(_motionEnabled);
-				updateClass(_motionEnabled);
+				handleAnimationState(_motionEnabled);
 			} else {
-				const _enabled = prefersMotion.matches;
-				setEnableMotion(_enabled);
-				updateClass(_enabled);
-				localStorage.setItem(motionStorageKey, String(_enabled));
+				const prefersMotion = window.matchMedia(
+					"(prefers-reduced-motion: no-preference)"
+				).matches;
+				handleAnimationState(prefersMotion);
 			}
 		} catch (error) {}
 	}, []);
@@ -59,11 +51,9 @@ export default function AnimationControl() {
 			type="button"
 			aria-pressed={enableMotion}
 			id="playButton"
-			onClick={() => handleAnimationState(enableMotion)}
+			onClick={() => handleAnimationState(!enableMotion)}
 		>
-			<span className="vh">
-				Animation is {enableMotion ? "enabled" : "disabled"}
-			</span>
+			<span className="vh">Enable animations</span>
 			<svg
 				id="pause"
 				xmlns="http://www.w3.org/2000/svg"

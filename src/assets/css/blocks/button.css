@@ -13,8 +13,14 @@
 	font-weight: var(--weight-bold);
 }
 
+.button:focus {
+	outline: 2px solid var(--color-dark);
+	outline-offset: 5px;
+}
+
 /* Make sure hover state trumps all variants with a good ol'  important */
-.button:not([data-variant="dark"]):hover {
+.button:not([data-variant="dark"]):hover,
+.button:not([data-variant="dark"]):focus {
 	background-color: var(--color-dark) !important;
 	color: var(--color-light) !important;
 }

@@ -15,22 +15,20 @@ const isCurrent = (page: string): "page" | undefined =>
 	current == page ? "page" : undefined;
 ---
 
-<div class="marquee-container">
-	<div>
-		<AnimationControl client:idle />
-		<Marquee>
-			{
-				skills.skills.map((item) => (
-					<li>
-						{item && item.icon ? (
-							<Icon icon={icons[item.icon]} />
-						) : null}
-						{item.value}
-					</li>
-				))
-			}
-		</Marquee>
-	</div>
+<div class="pre-head">
+	<AnimationControl client:idle />
+	<Marquee>
+		{
+			skills.skills.map((item) => (
+				<div>
+					{item && item.icon ? (
+						<Icon icon={icons[item.icon]} />
+					) : null}
+					<span>{item.value}</span>
+				</div>
+			))
+		}
+	</Marquee>
 </div>
 <header class="site-head">
 	<div class="head__inner">
