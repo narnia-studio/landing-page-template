@@ -9,6 +9,10 @@
 			"icon": "angular"
 		},
 		{
+			"value": "React",
+			"icon": "react"
+		},
+		{
 			"value": "Vue",
 			"icon": "vue"
 		}

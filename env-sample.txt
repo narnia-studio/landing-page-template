@@ -4,3 +4,5 @@ NOTION_BLOG_ID=your-notion-blog-table-id
 # e.g. https://my-domain.com 
 PERMALINK=http://localhost:3000
 NOTION_PROJECTS_ID=your-notion-projects-table-id
+CLOUDINARY_URL=get-this-on-the-cloudinary-dashboard
+CLOUDINARY_UPLOAD_FOLDER="" #if you want to create folders inside cloudinary
