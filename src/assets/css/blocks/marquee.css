@@ -11,6 +11,7 @@
 	padding-inline: var(--gutter);
 	max-inline-size: var(--wrapper-max-width, 85rem);
 	align-items: center;
+	font-weight: var(--weight-bold);
 }
 
 

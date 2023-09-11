@@ -1,20 +1,16 @@
 {
 	"skills": [
 		{
-			"value": "Javascript",
+			"value": "Inglês",
 			"icon": "js"
 		},
 		{
-			"value": "Angular",
+			"value": "Espanhol",
 			"icon": "angular"
 		},
 		{
-			"value": "React",
+			"value": "Francês",
 			"icon": "react"
-		},
-		{
-			"value": "Vue",
-			"icon": "vue"
 		}
 	]
 }

@@ -11,6 +11,11 @@
 	border-top: 3px solid var(--color-dark);
 }
 
+.site-head h1 {
+	display: flex;
+	justify-content: end;
+}
+
 .site-head ul {
 	display: flex;
 	justify-content: end;

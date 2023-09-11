@@ -24,7 +24,7 @@ const { title, current } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<SiteHead {current} />
+		<SiteHead {current} {title} />
 		<main tabindex="-1">
 			<slot />
 		</main>
@@ -38,6 +38,6 @@ const { title, current } = Astro.props;
 				</p>
 			</div>
 		</footer>
-		<script src="/js/prism.js" is:inline></script>
+		<script src="/js/scroll-animation.js" type="module" is:inline></script>
 	</body>
 </html>

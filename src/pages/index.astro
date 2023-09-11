@@ -2,18 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
-import { getPosts } from "../data/get-posts";
-import { getProjects } from "../data/get-projects";
+// import { getPosts } from "../data/get-posts";
+// import { getProjects } from "../data/get-projects";
 
-const posts = await getPosts();
-const projects = await getProjects();
+// const posts = await getPosts();
+// const projects = await getProjects();
+const posts = [];
+const projects = [];
 ---
 
-<Layout title="Astro excelent" current="home">
-	<section class="section">
+<Layout title="Polyglot plus" current="home">
+	<section class="section bg-secondary text-light-glare">
 		<div class="wrapper">
 			<div class="region">
-				<h2>Posts</h2>
+				<h2>Conheça o mundo sem se preocupar com o idioma</h2>
 			</div>
 			{
 				posts.length > 0 ? (
@@ -56,10 +58,10 @@ const projects = await getProjects();
 		</div>
 	</section>
 
-	<section class="section bg-secondary">
+	<section class="section bg-tertiary">
 		<div class="wrapper">
 			<div class="region">
-				<h2>Projects</h2>
+				<h2>Depoimentos</h2>
 			</div>
 
 			<ul
