@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "npx concurrently \"astro dev\" \"npm run css -- --watch\"",
-		"build": "node src/scripts/image-upload.cjs && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"css": "npx postcss src/assets/css/global.css -o public/css/global.css"
