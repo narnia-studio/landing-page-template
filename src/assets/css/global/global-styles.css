@@ -41,6 +41,7 @@ p,
 li,
 blockquote:not([class]) {
 	max-inline-size: 50ch;
+	letter-spacing: 0.07rem;
 }
 
 h1,
@@ -50,9 +51,20 @@ h3 {
 }
 
 blockquote {
-	border-inline-start: 0.8rem solid var(--color-primary);
 	padding: var(--space-m-l);
-	font-size: var(--size-step-2);
+	font-size: var(--size-step-1);
+}
+
+blockquote :first-child::before {
+	content: open-quote;
+}
+
+blockquote :first-child::after {
+	content: close-quote;
+}
+
+blockquote :first-child {
+	quotes: "“" "”" "‘" "’";
 }
 
 blockquote > * + * {
@@ -62,6 +74,7 @@ blockquote > * + * {
 blockquote :last-child {
 	font-family: var(--font-base);
 	font-style: normal;
+	font-weight: var(--weight-bold);
 	font-size: var(--size-step-1);
 }
 
@@ -94,7 +107,8 @@ main:focus {
 	outline: none;
 }
 
-article [href^="http"]:not([href*="eleventy-excellent.netlify.app"])::after {
+article
+	[href^="http"]:not([href*="eleventy-excellent.netlify.app"])::after {
 	display: inline-block;
 	inline-size: 1em;
 	block-size: 1em;

@@ -13,20 +13,22 @@ const { liveProject, title, body, cover, coverAlt, repo } = Astro.props;
 
 <li class="card">
 	<div class="flow flow-space-m">
-		{
-			cover && (
-				<img
-					src={cover}
-					loading="lazy"
-					alt={coverAlt || ""}
-					width="300"
-					height="400"
-				/>
-			)
-		}
-		<h3>
-			{title}
-		</h3>
+		<div class="heading">
+			{
+				cover && (
+					<img
+						src={cover}
+						loading="lazy"
+						alt={coverAlt || ""}
+						width="150"
+						height="150"
+					/>
+				)
+			}
+			<h3>
+				{title}
+			</h3>
+		</div>
 		<p>
 			{body}
 		</p>

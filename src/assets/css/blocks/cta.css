@@ -1,0 +1,4 @@
+.cta .cta__inner {
+	max-inline-size: 40ch;
+	padding-block-start: var(--space-s);
+}

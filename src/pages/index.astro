@@ -1,60 +1,52 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import hero from "../data/hero.json";
+import home from "../data/home.json";
+import { testimonials } from "../data/testimonials.json";
 
-// import { getPosts } from "../data/get-posts";
-// import { getProjects } from "../data/get-projects";
-
-// const posts = await getPosts();
-// const projects = await getProjects();
-const posts = [];
 const projects = [];
 ---
 
 <Layout title="Polyglot plus" current="home">
-	<section class="section bg-secondary text-light-glare">
+	<section class="section bg-primary text-light">
 		<div class="wrapper">
 			<div class="region">
-				<h2>Conheça o mundo sem se preocupar com o idioma</h2>
+				<h2>{hero.header}</h2>
 			</div>
-			{
-				posts.length > 0 ? (
-					<>
-						<ul role="list" class="wrapper flow flow-space-xl">
-							{posts.slice(0, 4).map((post: any) => (
-								<li>
-									<div class="flow flow-space-s-m">
-										<h3>
-											<a href={post.permalink}>
-												{post.title}
-											</a>
-										</h3>
-										<time datetime={post.date}>
-											{post.date}
-										</time>
-
-										<p>
-											{post.summary ? (
-												<Fragment
-													set:html={post.summary}
-												/>
-											) : null}
-										</p>
-									</div>
-								</li>
-							))}
-						</ul>
-						<div class="link">
-							<a href="/posts">See all posts</a>
-						</div>
-					</>
-				) : (
+			<div class="grid" data-layout="50-50">
+				<div class="flow flow-space-500">
 					<p>
-						Sorry we haven't made any posts yet.
-						<span aria-hidden="true">🥲</span>
+						{hero.info}
 					</p>
-				)
-			}
+	
+					<a href={hero.courseLink} class="button">
+						Assinar o Polyglot plus agora
+					</a>
+				</div>
+				<div class="cover-image">
+					<img data-drop-shadow="" src="/images/hero-image.jpg" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="wrapper">
+			<div class="region">
+				<h2 class="text-primary">{home.tips.header}</h2>
+			</div>
+
+			<ul class="styled-list flow flow-space-sm">
+				{
+					home.tips.tips.map((tip) => (
+						<li>
+							{" "}
+							<strong>{tip}</strong>
+						</li>
+					))
+				}
+			</ul>
 		</div>
 	</section>
 
@@ -71,30 +63,51 @@ const projects = [];
 				class="grid"
 			>
 				{
-					projects.map((project) => (
-						<Card
-							liveProject={project.liveProject}
-							title={project.name}
-							body={project.description}
-							repo={project.repo}
-							cover={project.cover}
-							coverAlt={project.coverAlt}
-						/>
-					))
+					testimonials.map(
+						({ testimonial, twitter, name, profession }) => (
+							<li class="card">
+								<blockquote>
+									<p>{testimonial}</p>
+									<p>
+										{name} • {profession}
+									</p>
+								</blockquote>
+							</li>
+						)
+					)
 				}
-				<Card
-					liveProject="https://astro.build/integrations/"
-					title="Integrations"
-					body="Supercharge your project with new frameworks and libraries."
-					repo=""
-				/>
-				<Card
-					liveProject="https://astro.build/integrations/"
-					title="Integrations"
-					body="Supercharge your project with new frameworks and libraries."
-					repo=""
-				/>
 			</ul>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="wrapper">
+			<div class="region">
+				<h2>O que oferecemos para você</h2>
+			</div>
+
+			<ul
+				role="list"
+				data-layout="50-50"
+				data-rows="masonry"
+				class="grid"
+			>
+				{
+					home.offers.map(
+						({title, content }) => (
+							<li class="card bg-primary text-light">
+								<article class="flow flow-space-m">
+									<h3>{title}</h3>
+									<p>
+										{content}
+									</p>
+								</article>
+							</li>
+						)
+					)
+				}
+			</ul>
+
 		</div>
 	</section>
 </Layout>

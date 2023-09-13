@@ -1,0 +1,13 @@
+.youtube-video  {
+	padding-block-start: 3rem;
+}
+
+
+.youtube-video img {
+	object-fit: cover;
+	border-radius: 8px;
+	object-position: center;
+	max-width: 100%;
+	height: auto;
+	max-height: 16ch;
+}

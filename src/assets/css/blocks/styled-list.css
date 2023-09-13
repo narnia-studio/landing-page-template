@@ -1,0 +1,8 @@
+.styled-list strong {
+	font-size: var(--size-step-2);
+}
+
+.styled-list li::marker {
+	color: var(--color-primary);
+	font-size: var(--size-step-3);
+}

@@ -1,16 +1,13 @@
 {
 	"skills": [
 		{
-			"value": "Inglês",
-			"icon": "js"
+			"value": "Inglês"
 		},
 		{
-			"value": "Espanhol",
-			"icon": "angular"
+			"value": "Espanhol"
 		},
 		{
-			"value": "Francês",
-			"icon": "react"
+			"value": "Francês"
 		}
 	]
 }

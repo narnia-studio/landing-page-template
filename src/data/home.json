@@ -1,0 +1,30 @@
+{
+	"tips": {
+		"header": "Como aproveitar ao máximo nossos cursos?",
+		"tips": [
+			"Faça as aulas no seu tempo.",
+			"Leia os resumos disponibilizados.",
+			"Leia nossos mapas mentais.",
+			"Assista aos vídeos quantas vezes quiser.",
+			"Pratique, pois a prática trás a perfeição."
+		]
+	},
+	"offers": [
+		{
+			"title": "Acesso ao nosso catálogo de cursos",
+			"content": "Nossa plataforma conta com um total de +1000 vídeos e conteúdos nos idiomas Inglês, Francês e Espanhol"
+		},
+		{
+			"title": "Acesso a tutores 24h",
+			"content": "Você conta com o suporte de nossos tutores 24h por dia, faça as aulas no horário que é melhor para você sem preocupações"
+		},
+		{
+			"title": "Aulas ao vivo",
+			"content": "Fora todo o conteúdo disponibilizado de forma assíncrona, você também pode agendar aulas ao vivo com professores nativos, quando se sentir preparado"
+		},
+		{
+			"title": "Planos acessíveis",
+			"content": "Nossos planos cabem no seu bolso, não encontrou uma modalidade de planos que funcione para você? Entre em contato com nossos atendentes e podemos te ajudar a montar modalidades que não pesem no seu bolso"
+		}
+	]
+}
