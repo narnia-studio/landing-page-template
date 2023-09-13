@@ -2,18 +2,21 @@
 	"testimonials": [
 		{
 			"twitter": "",
+			"photo": "jane.jpg",
 			"name": "Jane Anne",
 			"profession": "Analista de dados",
 			"testimonial": "Graças ao Polyglot plus hoje moro na França, o apoio dos tutores foram essenciais no meu processo de aprendizado."
 		},
 		{
 			"twitter": "",
+			"photo": "john.jpg",
 			"name": "John Doe",
 			"profession": "Marketer",
 			"testimonial": "Sem dúvida um dos melhores cursos de Espanhol que já fiz."
 		},
 		{
 			"twitter": "",
+			"photo": "barb.jpg",
 			"name": "Barb Jhonson",
 			"profession": "Estudante",
 			"testimonial": "Um catálogo maravilhoso de aulas, professores e equipe de suporte execelentes."

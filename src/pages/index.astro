@@ -64,8 +64,11 @@ const projects = [];
 			>
 				{
 					testimonials.map(
-						({ testimonial, twitter, name, profession }) => (
+						({ testimonial, twitter, name, profession, photo }) => (
 							<li class="card">
+								<figure>
+									<img src={`/images/` + photo} alt="">
+								</figure>
 								<blockquote>
 									<p>{testimonial}</p>
 									<p>
