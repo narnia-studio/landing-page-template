@@ -1,7 +1,7 @@
 .button {
 	display: inline-block;
 	padding: 0.5rem 2rem;
-	background-color: var(--color-tertiary);
+	background-color: var(--color-primary);
 	color: var(--color-dark);
 	border: 2px solid;
 
@@ -22,7 +22,7 @@
 .button:not([data-variant="dark"]):hover,
 .button:not([data-variant="dark"]):focus {
 	background-color: var(--color-dark) !important;
-	color: var(--color-light) !important;
+	color: var(--color-primary) !important;
 }
 
 .button[data-variant="dark"]:hover {

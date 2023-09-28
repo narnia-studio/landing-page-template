@@ -12,19 +12,23 @@ const projects = [];
 ---
 
 <Layout title="Polyglot plus" current="home">
-	<div class="pre-head wrapper">
-		<AnimationControl client:idle />
-		<Marquee>
-			{
-				languages.langs.map((item) => (
-					<div>
-						<span class="text-tertiary" data-font="large">{item.value}</span>
-					</div>
-				))
-			}
-		</Marquee>
+	<div class="bg-primary text-dark">
+		<div class="wrapper">
+			<div class="pre-head">
+				<AnimationControl client:idle />
+				<Marquee>
+					{
+						languages.langs.map((item) => (
+							<div>
+								<span data-font="large">{item.value}</span>
+							</div>
+						))
+					}
+				</Marquee>
+			</div>
+		</div>
 	</div>
-	<section class="section bg-primary text-light">
+	<section class="section bg-dark text-light">
 		<div class="wrapper flow">
 			<div class="region">
 				<h2>{hero.header}</h2>
@@ -49,7 +53,7 @@ const projects = [];
 	<section class="section">
 		<div class="wrapper">
 			<div class="region">
-				<h2 class="text-primary">{home.tips.header}</h2>
+				<h2>{home.tips.header}</h2>
 			</div>
 
 			<ul class="styled-list flow flow-space-sm">
@@ -65,10 +69,10 @@ const projects = [];
 		</div>
 	</section>
 
-	<section class="section bg-tertiary">
+	<section class="section bg-dark">
 		<div class="wrapper">
 			<div class="region">
-				<h2>Depoimentos</h2>
+				<h2 class="text-light">Depoimentos</h2>
 			</div>
 
 			<ul
@@ -98,7 +102,7 @@ const projects = [];
 		</div>
 	</section>
 
-	<section class="section">
+	<section class="section bg-primary">
 		<div class="wrapper">
 			<div class="region">
 				<h2>O que oferecemos para você</h2>
@@ -113,7 +117,7 @@ const projects = [];
 				{
 					home.offers.map(
 						({title, content }) => (
-							<li class="card bg-primary text-light">
+							<li class="card text-primary" data-variant="dark">
 								<article class="flow flow-space-m">
 									<h3>{title}</h3>
 									<p>

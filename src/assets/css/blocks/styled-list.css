@@ -3,6 +3,6 @@
 }
 
 .styled-list li::marker {
-	color: var(--color-primary);
+	color: var(--color-primary-shade);
 	font-size: var(--size-step-3);
 }
