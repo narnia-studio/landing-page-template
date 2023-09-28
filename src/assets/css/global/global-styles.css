@@ -64,7 +64,7 @@ blockquote :first-child::after {
 }
 
 blockquote :first-child {
-	quotes: "“" "”" "‘" "’";
+	quotes: """ """ "'" "'";
 }
 
 blockquote > * + * {
