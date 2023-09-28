@@ -25,6 +25,10 @@
 	animation-play-state: var(--animation-play-state);
 }
 
+.marquee [data-font="large"] {
+	font-size: var(--size-step-4);
+}
+
 @keyframes scroll {
 	from {
 		transform: translateX(0);

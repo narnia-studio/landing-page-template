@@ -1,8 +1,4 @@
 ---
-import Marquee from "./Marquee.jsx";
-import AnimationControl from "./AnimationControl.jsx";
-import skills from "../data/skills.json";
-
 export interface Props {
 	current?: string;
 	title?: string;
@@ -17,19 +13,6 @@ const isCurrent = (page: string): "page" | undefined =>
 	<div class="warning wrapper">
 		<p>Site criado apenas para fins demonstrativos <span aria-hidden="true">😉</span>, essa empresa não existe.</p>
 	</div>
-</div>
-
-<div class="pre-head">
-	<AnimationControl client:idle />
-	<Marquee>
-		{
-			skills.skills.map((item) => (
-				<div>
-					<span>{item.value}</span>
-				</div>
-			))
-		}
-	</Marquee>
 </div>
 <header class="site-head">
 	<div class="head__inner">

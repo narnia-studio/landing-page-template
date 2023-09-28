@@ -1,16 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import hero from "../data/hero.json";
 import home from "../data/home.json";
 import { testimonials } from "../data/testimonials.json";
+import languages from "../data/languages.json";
+
+import Marquee from "../components/Marquee.jsx";
+import AnimationControl from "../components/AnimationControl.jsx";
 
 const projects = [];
 ---
 
 <Layout title="Polyglot plus" current="home">
+	<div class="pre-head wrapper">
+		<AnimationControl client:idle />
+		<Marquee>
+			{
+				languages.langs.map((item) => (
+					<div>
+						<span class="text-tertiary" data-font="large">{item.value}</span>
+					</div>
+				))
+			}
+		</Marquee>
+	</div>
 	<section class="section bg-primary text-light">
-		<div class="wrapper">
+		<div class="wrapper flow">
 			<div class="region">
 				<h2>{hero.header}</h2>
 			</div>
